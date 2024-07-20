@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+		{
+			"type": "shell",
+			"label": "Build (make)",
+			"command": "make",
+			"args": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Program Device",			
+			"command": "make",
+			"args": [
+				"upload"				
+			],
+			"dependsOn": "Build (make)",
+			"problemMatcher": [],
+			"group": "build"
+		},
+	]
+}
