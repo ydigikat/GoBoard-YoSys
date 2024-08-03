@@ -19,8 +19,8 @@ always_ff @(posedge i_clk)
     counter <= counter + 1;  
 
 
-/* The ubiquitous Mr Blinky once again graces us with its presence */
-assign o_LED_1 = counter[22];
+/* The ubiquitous Blinky once again graces us with its presence */
+assign o_LED_1 = counter[23];
 
 
 endmodule

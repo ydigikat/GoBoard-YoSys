@@ -18,7 +18,7 @@ BIN			=	/usr/bin
 
 # Linter (iverilog)
 LINT		=	$(TOOLS)/iverilog
-LINT_FLAGS  +=	-g2005-sv -Wall -t null
+LINT_FLAGS  +=	-g2012 -Wall -t null
 LINT_FLAGS  +=  -l /usr/local/share/yosys/ice40/cells_sim.v 
 
 # Synthesiser (yosys)
@@ -41,7 +41,7 @@ TIME_FLAGS  =   -tmd $(DEVICE)
 
 # Simulator (iverilog)
 SIM			=	$(TOOLS)/iverilog
-SIM_FLAGS   =   -g2005-sv -D NO_ICE40_DEFAULT_ASSIGNMENTS
+SIM_FLAGS   =   -g2012 -D NO_ICE40_DEFAULT_ASSIGNMENTS
 SIM_FLAGS   +=  -B /usr/local/lib/ivl
 SIM_FLAGS   +=  -o $(BUILD)/$(PROJECT).out 
 SIM_FLAGS	+=  -D VCD_OUTPUT=$(BUILD)/$(PROJECT)
@@ -59,10 +59,11 @@ SRCS_TB		=	$(SRC)/tb/top_tb.sv
 
 				
 # Targets
+.PHONY: all clean lint synthesise pnr pack prog timing build
 
-.PHONY: all clean lint synthesise pnr pack prog timing
+all: build prog
 
-all: clean lint synthesise pnr timing pack prog
+build: clean synthesise
 
 clean:
 	rm -rf $(BUILD)

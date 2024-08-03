@@ -1,13 +1,13 @@
 # GoBoard Template
-Template project and makefile for building Systemverilog hardware designs for the [Nandland Go Board](https://nandland.com/the-go-board/) development board using an open-source toolchain on Linux.
+Template project and makefile for building Systemverilog hardware designs for the [Nandland Go Board](https://nandland.com/the-go-board/) development board using the Yosys open-source toolchain on Linux.
 
 The template implements a typical Blinky project with the 25MHz clock divided down and used to blink the green LED.  
 
 If all is well with your installation (toolchain), this should work without problems out of the box.
 
-NOTE: The ICE40 HX1K () package used on the GoBoard does not bond the PLL to a pin, so the maximum clock speed available is 25MHz.
+NOTE: The smaller ICE40 HX1K package used on the GoBoard does not bond the PLL to a pin, so the maximum clock speed available is 25MHz.
 
-## Toolchain
+## Toolchain 
 
 This requires the following tooling, all of which can be obtained from [YosysHQ](https://github.com/YosysHQ)
 
@@ -18,7 +18,7 @@ This requires the following tooling, all of which can be obtained from [YosysHQ]
 |iverilog| Linting and simulation|
 |icestorm| Bitstream generation and utilities for ICE40 FPGA line|
 
-It also uses [GtkWave](https://gtkwave.sourceforge.net/) to display simulation waveforms (VCD).
+It uses [GtkWave](https://gtkwave.sourceforge.net/) to display simulation waveforms (VCD).
 
 ## Folders
 
@@ -54,7 +54,7 @@ Add additional sources and test benches to the SRCS and SRCS_TB variables as you
 | sim | Run simulation using iverilog/vpp; this will display outputs at completion|
 | test | Runs verification| 
 
-## VS Code Configuration
+## IDE (VS Code) Configuration
 I use VS Code as an IDE for Lattice FPGA development.  The .vscode folder contains configuration (JSON) files for VS Code.
 
 | File | Purpose | 
@@ -63,7 +63,7 @@ I use VS Code as an IDE for Lattice FPGA development.  The .vscode folder contai
 | tasks.json| Tasks for executing selected makefile targets |
 
 ## SVLS Extension
-This is a Systemverilog Language Server.  The .svlint.toml file located in the root of the project configures which rules are checked.  These are documented (somewhat erratically) on the SVLS website.  
+This is a Systemverilog Language Server.  The .svlint.toml file located in the root of the project configures which rules are checked.  These are documented on the SVLS website.  
 
 It is quite possible to create rules that contradict each other, in fact if no .svlint.toml is configured then all rules are active and exactly this happens.
 
